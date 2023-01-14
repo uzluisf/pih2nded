@@ -45,6 +45,8 @@ pair x y = (x, y) -- pair :: a -> b -> (a, b)
 double x = x * 2 -- double :: Num a => a -> a
 
 palindrome xs = reverse xs == xs -- palindrome :: [a] -> Bool
+
+twice f x = f (f x) -- twice :: (a -> b) -> a -> b
 ```
 
 Hint: take care to include the necessary class constraints in the types if the function are defined using overloaded operators.
@@ -83,9 +85,13 @@ ghci> :type double
 double :: Num a => a -> a
 ghci> :type palindrome
 palindrome :: Eq a => [a] -> Bool
+ghci> :type twice
+twice :: (t -> t) -> t -> t
 ```
 
-For `palindrome`, I forgot the class constraint `Eq` which is needed since two lists are being compared with `==`.
+* For `palindrome`, I forgot the class constraint `Eq` which is needed since two lists are being compared with `==`.
+
+* For `twice`, I got the types wrong. 
 
 5. Why is it not feasible in general for function types to be instances of the `Eq` class? When is it feasible? Hint: two functions of the same type are equal if they always return equal results for equal arguments.
 
