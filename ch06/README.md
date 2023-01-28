@@ -177,12 +177,12 @@
 
    ```haskell
    merge :: Ord a => [a] -> [a] -> [a]
-merge [] ys = ys
-merge xs [] = xs
-merge (x:xs) (y:ys)
+   merge [] ys = ys
+   merge xs [] = xs
+   merge (x:xs) (y:ys)
     | x < y     = x : merge xs (y:ys)
     | otherwise = y : merge (x:xs) ys   
-```
+   ```
 
 8. Using `merge`, define a function `msort :: Ord a => [a] -> [a]` that
    implements *merge sort*, in which the empty list and singleton lists are
@@ -190,18 +190,18 @@ merge (x:xs) (y:ys)
    lists that result from sorting the two halves of the list separately.
 
    ```haskell
-halve :: [a] -> ([a], [a])
-halve xs = (take mid xs, drop mid xs)
+   halve :: [a] -> ([a], [a])
+   halve xs = (take mid xs, drop mid xs)
           where
              mid = (length xs) `div` 2
-msort :: Ord a => [a] -> [a]
-msort []  = []
-msort [x] = [x]
-msort xs = merge (msort lower) (msort upper)
+   msort :: Ord a => [a] -> [a]
+   msort []  = []
+   msort [x] = [x]
+   msort xs = merge (msort lower) (msort upper)
          where
             lower = fst (halve xs)
             upper = snd (halve xs)
-```
+   ```
    
    Hint: first define a function `halve :: [a] -> ([a], [a])` that splits a
    list into two halves whose lengths differ by at most one.
