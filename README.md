@@ -6,3 +6,4 @@
 * [Chapter 04: Defining functions](./ch04/README.md)
 * [Chapter 05: List comprehensions](./ch05/README.md)
 * [Chapter 06: Recursive functions](./ch06/README.md)
+* [Chapter 07: Higher-order functions](./ch07/README.md)
